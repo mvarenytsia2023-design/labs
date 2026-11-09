@@ -1,0 +1,89 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: system-ui, -apple-system, sans-serif;
+background-color: #f4f6f9;
+color: #333333;
+padding: 20px;
+}
+nav {
+margin-bottom: 20px;
+}
+nav a {
+color: #0c54a0;
+text-decoration: none;
+font-weight: 500;
+}
+header#hero_container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #0c54a0;
+color: #ffffff;
+width: 100%;
+min-height: 120px;
+padding: 20px 40px;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+margin: 0 auto 30px auto;
+}
+.hero-brand {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.hero-brand img.logo {
+height: 70px;
+width: auto;
+object-fit: contain;
+}
+.brand-text h1 {
+font-size: 20px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+line-height: 1.2;
+}
+.brand-text h2 {
+font-size: 18px;
+font-weight: 400;
+color: #ffcc00;
+line-height: 1.2;
+}
+.hero-actions {
+display: flex;
+gap: 15px;
+}
+.btn {
+display: inline-block;
+padding: 10px 20px;
+font-size: 14px;
+font-weight: 600;
+text-decoration: none;
+border-radius: 4px;
+transition: background-color 0.2s ease;
+}
+.btn-primary {
+background-color: #ffcc00;
+color: #0c54a0;
+}
+.btn-primary:hover {
+background-color: #e6b800;
+}
+.btn-secondary {
+background-color: transparent;
+color: #ffffff;
+border: 2px solid #ffffff;
+}
+.btn-secondary:hover {
+background-color: rgba(255, 255, 255, 0.1);
+}
+footer {
+text-align: center;
+color: #777777;
+font-size: 14px;
+margin-top: 40px;
+}
