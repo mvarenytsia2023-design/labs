@@ -1,0 +1,195 @@
+$primary-color: #0c54a0;
+$secondary-color: #ffcc00;
+$text-color: #333333;
+$bg-color: #f8f9fa;
+$white: #ffffff;
+$muted-color: #777777;
+$font-size-small: 12px;
+$font-size-base: 15px;
+$font-size-medium: 18px;
+$font-size-large: 24px;
+$breakpoints: (
+mobile: 576px,
+tablet: 768px,
+desktop: 1024px
+);
+@mixin respond-to($breakpoint) {
+@if map-has-key($breakpoints, $breakpoint) {
+@media (min-width: map-get($breakpoints, $breakpoint)) {
+@content;
+}
+}
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: system-ui, -apple-system, sans-serif;
+background-color: $bg-color;
+color: $text-color;
+padding: 20px;
+}
+.back-nav {
+margin-bottom: 20px;
+a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+}
+}
+header#hero_container {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+gap: 15px;
+text-align: center;
+background-color: $primary-color;
+color: $white;
+padding: 20px 40px;
+border-radius: 8px;
+margin-bottom: 40px;
+@include respond-to(tablet) {
+    flex-direction: row;
+    text-align: left;
+}
+
+.brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @include respond-to(tablet) {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .header-logo {
+        height: 60px;
+        width: auto;
+    }
+
+    .brand-text {
+        h1 {
+            font-size: $font-size-medium;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: $font-size-base;
+            color: $secondary-color;
+        }
+    }
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+
+    .nav-item {
+        color: $white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 5px 10px;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &.active {
+            color: $secondary-color;
+        }
+    }
+}
+}
+.main-container {
+max-width: 1200px;
+margin: 0 auto;
+.section-title {
+    text-align: center;
+    font-size: $font-size-large;
+    color: $primary-color;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        border-bottom: 3px solid $secondary-color;
+    }
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @include respond-to(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .news-card {
+        background-color: $white;
+        border-radius: 6px;
+        border-top: 4px solid $primary-color;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:nth-child(even) {
+            border-top-color: $secondary-color;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .news-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .news-date {
+                font-size: $font-size-small;
+                color: #888888;
+                font-weight: 600;
+            }
+
+            .news-headline {
+                a {
+                    font-size: $font-size-base;
+                    color: $text-color;
+                    text-decoration: none;
+                    line-height: 1.4;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+}
+footer {
+text-align: center;
+color: $muted-color;
+margin-top: 50px;
+font-size: 14px;
+}
